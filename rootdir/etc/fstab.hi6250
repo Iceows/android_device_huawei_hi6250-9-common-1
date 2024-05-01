@@ -5,7 +5,7 @@ vendor       /vendor       ext4     ro,barrier=1    wait,logical,first_stage_mou
 odm          /odm          ext4     ro,barrier=1    wait,logical,first_stage_mount
 
 /dev/block/platform/hi_mci.0/by-name/splash2             /splash2       ext4    rw,nosuid,nodev,noatime,data=ordered,context=u:object_r:splashtwo_file:s0 wait,nofail
-/dev/block/platform/hi_mci.0/by-name/userdata            /data          ext4    rw,nosuid,nodev,noatime,user_xattr,acl,barrier=1,data=ordered,noauto_da_alloc,mblk_io_submit,discard latemount,wait,check,reservedsize=20M,quota
+/dev/block/platform/hi_mci.0/by-name/userdata            /data          f2fs    nosuid,nodev,noatime,discard,inline_data,inline_xattr wait,check,fileencryption=aes-256-xts:aes-256-cts
 /dev/block/platform/hi_mci.0/by-name/version             /metadata      ext4    noatime,nosuid,nodev wait,check,formattable,first_stage_mount
 /dev/block/platform/hi_mci.0/by-name/cache               /cache         ext4    rw,nosuid,nodev,noatime,data=ordered wait,check
 /dev/block/platform/hi_mci.0/by-name/secure_storage      /sec_storage   ext4    rw,nosuid,nodev,noatime,discard,auto_da_alloc,mblk_io_submit,data=journal,context=u:object_r:teecd_data_file:s0 wait,nofail

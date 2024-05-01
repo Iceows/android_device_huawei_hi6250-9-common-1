@@ -25,6 +25,10 @@ ro.hwcamera.SlowMotionZoom=0
 vendor.camera.dis.flag=2
 vendor.camera.drop.buffer=1
 
+# Crypto
+ro.crypto.volume.contents_mode=aes-256-xts
+ro.crypto.volume.filenames_mode=aes-256-cts
+
 # DRM
 drm.service.enabled=true
 
