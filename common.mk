@@ -324,6 +324,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     vendor.huawei.hardware.hwvibrator@1.0.vendor
+    
+# IME Input
+PRODUCT_PACKAGES += \
+    libjni_latinimegoogle
 
 # Wifi
 PRODUCT_PACKAGES += \
