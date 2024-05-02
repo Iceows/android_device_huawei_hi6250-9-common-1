@@ -131,6 +131,11 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service \
     android.hardware.gatekeeper@1.0-impl
 
+# USB
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service \
+    com.android.future.usb.accessory
+
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0.vendor \
