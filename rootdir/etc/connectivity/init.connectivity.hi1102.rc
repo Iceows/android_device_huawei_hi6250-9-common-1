@@ -14,6 +14,9 @@ on post-fs-data
     # GPS
     mkdir /data/vendor/gnss 0770 system system
     mkdir /data/vendor/cust_conn 0770 system system
+    
+    # A-GPS (SUPL20 apk)
+    setprop is_hisi_connectivity_chip 1
 
 service octty /vendor/bin/octty
     class core

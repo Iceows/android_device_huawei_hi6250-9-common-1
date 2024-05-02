@@ -25,3 +25,11 @@ cc_prebuilt_library_shared {
     check_elf_files: false,
     soc_specific: false,
 }
+
+android_app_import {
+	name: "gnss_supl20service_hisi",
+	owner: "huawei",
+	apk: "system/app/gnss_supl20service_hisi/gnss_supl20service_hisi.apk",
+        certificate: "platform",
+        privileged: false
+}
