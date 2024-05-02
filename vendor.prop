@@ -32,6 +32,9 @@ bluetooth.profile.sap.server.enabled?=true
 persist.sys.bt.esco_transport_unit_size=16
 persist.sys.bt.unsupported.states=182
 
+# Bluetooth MAC BT
+ro.bt.bdaddr_path=/data/vendor/bluedroid/macbt
+
 # Camera
 ro.hwcamera.SlowMotionZoom=0
 vendor.camera.dis.flag=2
