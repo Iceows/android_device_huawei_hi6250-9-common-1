@@ -13,7 +13,7 @@ odm          /odm          ext4     ro,barrier=1    wait,logical,first_stage_mou
 /dev/block/platform/hi_mci.0/by-name/kernel              /boot          emmc    defaults        recoveryonly
 /dev/block/platform/hi_mci.0/by-name/oeminfo             /oeminfo       emmc    defaults first_stage_mount
 
-/dev/block/bootdevice/hi_mci.0/by-name/userdata          /data       ext4    nosuid,nodev,noatime,user_xattr,acl,barrier=1,data=ordered,noauto_da_alloc,mblk_io_submit,discard     wait,check,quota
+/dev/block/platform/hi_mci.0/by-name/userdata            /data          f2fs    nosuid,nodev,noatime,discard,inline_data,inline_xattr wait,check,fileencryption=aes-256-xts:aes-256-cts
 
 /devices/hi_mci.1/mmc_host/mmc1/*                     auto           auto    defaults voldmanaged=sdcard:auto,noemulatedsd
 /devices/platform/hi_mci.1/mmc_host/mmc1/*            auto           auto    defaults voldmanaged=sdcard:auto,noemulatedsd
