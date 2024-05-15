@@ -285,6 +285,7 @@ vendor/etc/gnss/gnss_lss_thirdparty.conf
 vendor/etc/init/vendor.huawei.hardware.gnss@1.2-service.rc
 vendor/etc/init/vendor.huawei.hardware.hisupl@1.0-service.rc
 vendor/etc/geoloc.conf
+vendor/lib/libgnss_lss_gw_thirdparty.so
 vendor/lib64/hw/gps.hi1102.default.so
 vendor/lib64/hw/gps.hisi.default.so
 vendor/lib64/hw/hisupl.hi1102.default.so
