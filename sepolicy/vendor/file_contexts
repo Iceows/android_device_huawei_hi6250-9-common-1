@@ -10,3 +10,10 @@
 /dev/block/platform/hi_mci\.0/by-name/system        u:object_r:system_block_device:s0
 /dev/block/platform/hi_mci\.0/by-name/vendor        u:object_r:system_block_device:s0
 /dev/block/platform/hi_mci\.0/by-name/version       u:object_r:metadata_block_device:s0
+
+# TEE
+/system/bin/tee_auth_daemon    u:object_r:teecd_auth_exec:s0
+/system/bin/system_teecd       u:object_r:system_teecd_exec:s0
+/sys/kernel/tui/c_state        u:object_r:sysfs:s0
+/dev/tc_ns_client              u:object_r:teecd_device:s0
+

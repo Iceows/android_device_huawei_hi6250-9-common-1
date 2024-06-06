@@ -77,3 +77,6 @@
 
 # FRP
 /dev/block/mmcblk0p4                            0660 system system
+
+# TEE
+/dev/tc_ns_client                               0664 system system

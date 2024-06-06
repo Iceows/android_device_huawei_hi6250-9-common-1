@@ -3,6 +3,7 @@ import /vendor/etc/init/hw/init.performance.rc
 import /vendor/etc/init/hw/init.override.rc
 import /vendor/etc/init/connectivity/init.connectivity.${ro.boot.odm.conn.chiptype}.rc
 
+
 on early-boot
     # Adjust parameters for dm-verity device
     write /sys/block/dm-0/queue/read_ahead_kb 2048
@@ -176,7 +177,7 @@ on fs
     # sec_storage for TEE
     chown root root /sec_storage
     chmod 600 /sec_storage
-
+    
     # splash2
     restorecon /splash2
     chmod 775 /splash2
@@ -196,6 +197,8 @@ on fs
     # Enable ZRAM
     swapon_all /vendor/etc/fstab.${ro.hardware}
 
+    # Start TEECD
+    start teecd
 
 
 on post-fs
@@ -232,12 +235,6 @@ on post-fs-data
     mkdir /data/vendor/bluedroid 0771 bluetooth bluetooth
 
     # TEE
-    mkdir /data/sec_storage_data 0700 system system encryption=None
-    restorecon /data/sec_storage_data
-
-    mkdir /data/sec_storage_data_users 0700 system system encryption=None
-    restorecon /data/sec_storage_data_users
-
     mkdir /data/vendor/log/sec_storage_data 0775 system system
     mkdir /data/vendor/log/sec_storage_data/log 0755 system system
 
@@ -247,6 +244,12 @@ on post-fs-data
     mkdir /data/vendor/sec_storage_data_users 0700 system system
     restorecon /data/vendor/sec_storage_data_users
 
+    # set sec_storage_data can be access by teecd
+    mkdir /data/sec_storage_data 0700 system system encryption=None
+    restorecon /data/sec_storage_data
+    mkdir /data/sec_storage_data_users 0700 system system encryption=None
+    restorecon /data/sec_storage_data_users
+    
     # OMA
     mkdir /data/vendor/misc/oma
     chmod 0770 /data/vendor/misc/oma
@@ -964,18 +967,20 @@ service diagserver /vendor/bin/diagserver
     user root
     disabled
 
+#secure os tee agent
 service teeauth /system/bin/tee_auth_daemon
     socket tui_daemon stream 660 root system
     socket tee-multi-user stream 660 root system
     class core
     user root
     group root system readproc
-    seclabel u:r:system_teecd:s0
+    seclabel u:r:teecd_auth:s0
 
 service teecd /vendor/bin/teecd
     class early_hal
     user root
     group root system readproc
+    disabled
     seclabel u:r:tee:s0
 
 service teelogcat /vendor/bin/tlogcat -f
