@@ -2,7 +2,7 @@ import /vendor/etc/init/hw/init.hi6250.usb.rc
 import /vendor/etc/init/hw/init.performance.rc
 import /vendor/etc/init/hw/init.override.rc
 import /vendor/etc/init/connectivity/init.connectivity.${ro.boot.odm.conn.chiptype}.rc
-
+import /vendor/etc/init/charger/init.charger.rc
 
 on early-boot
     # Adjust parameters for dm-verity device

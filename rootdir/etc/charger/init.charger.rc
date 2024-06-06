@@ -1,0 +1,100 @@
+# Copyright (C) 2008 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+
+on charger
+
+    chmod 0660 /sys/class/hw_power/interface/enable_charger
+    chown system system /sys/class/hw_power/interface/enable_charger
+    chmod 0660 /sys/class/hw_power/charger/charge_data/iin_thermal
+    chown system system /sys/class/hw_power/charger/charge_data/iin_thermal
+    chmod 0660 /sys/class/hw_power/charger/direct_charger/enable_charger
+    chown system system /sys/class/hw_power/charger/direct_charger/enable_charger
+    chmod 0660 /sys/class/hw_power/charger/direct_charger/iin_thermal
+    chown system system /sys/class/hw_power/charger/direct_charger/iin_thermal
+    chmod 0660 /sys/class/hw_power/charger/direct_charger/adaptor_voltage
+    chown system system /sys/class/hw_power/charger/direct_charger/adaptor_voltage
+
+    chmod 0660 /sys/class/hw_power/charger/direct_charger_sc/enable_charger
+    chown system system /sys/class/hw_power/charger/direct_charger_sc/enable_charger
+    chmod 0660 /sys/class/hw_power/charger/direct_charger_sc/iin_thermal
+    chown system system /sys/class/hw_power/charger/direct_charger_sc/iin_thermal
+    chmod 0660 /sys/class/hw_power/charger/direct_charger_sc/set_resistance_threshold
+    chown system system /sys/class/hw_power/charger/direct_charger_sc/set_resistance_threshold
+    chmod 0660 /sys/class/hw_power/charger/direct_charger_sc/set_chargetype_priority
+    chown system system /sys/class/hw_power/charger/direct_charger_sc/set_chargetype_priority
+
+    chmod 0660 /sys/class/hw_power/charger/wireless_sc/enable_charger
+    chown system system /sys/class/hw_power/charger/wireless_sc/enable_charger
+    chmod 0660 /sys/class/hw_power/charger/wireless_sc/iin_thermal
+    chown system system /sys/class/hw_power/charger/wireless_sc/iin_thermal
+
+    chmod 0660 /sys/class/hw_power/charger/charge_data/cca_charge_pattern
+    chown system system /sys/class/hw_power/charger/charge_data/cca_charge_pattern
+    chmod 0660 /sys/class/hw_power/charger/charge_data/cca_cccv_sample
+    chown system system /sys/class/hw_power/charger/charge_data/cca_cccv_sample
+
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    restorecon_recursive /sys/devices/system/cpu/cpu0/cpufreq/interactive
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 807000
+    chown system system /sys/class/android_usb/android0/switch_request
+    chmod 0664 /sys/class/android_usb/android0/switch_request
+
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor powersave
+    write /sys/kernel/set_hmp_thresholds/enable 0
+    write /sys/kernel/hmp/up_threshold 1020
+    write /sys/kernel/hmp/down_threshold 768
+    write /sys/kernel/set_hmp_thresholds/enable 1
+    write /sys/kernel/eas/boot_boost 0
+
+    write /sys/class/devfreq/ddrfreq/min_freq 0
+    write /sys/class/devfreq/ddrfreq/max_freq 0
+    write /sys/class/devfreq/ddrfreq_latency/min_freq 0
+    write /sys/class/devfreq/ddrfreq_latency/max_freq 0
+    write /sys/class/devfreq/ddrfreq_up_threshold/max_freq 933000000
+    write /sys/class/devfreq/ddrfreq_up_threshold/min_freq 933000000
+
+    chmod 0660 /sys/devices/virtual/hw_power/power_mesg/powerct
+    chown system system /sys/devices/virtual/hw_power/power_mesg/powerct
+    chmod 0660 /sys/devices/virtual/hw_power/power_mesg/runtime
+    chown system system /sys/devices/virtual/hw_power/power_mesg/runtime
+    chmod 0440 /sys/devices/platform/huawei_batt_info/ic_id
+    chown system system /sys/devices/platform/huawei_batt_info/ic_id
+    chmod 0440 /sys/devices/platform/huawei_batt_info/batt_id
+    chown system system /sys/devices/platform/huawei_batt_info/batt_id
+    chmod 0440 /sys/devices/platform/huawei_batt_info/ic_status
+    chown system system /sys/devices/platform/huawei_batt_info/ic_status
+    chmod 0440 /sys/devices/platform/huawei_batt_info/sn_status
+    chown system system /sys/devices/platform/huawei_batt_info/sn_status
+    chmod 0440 /sys/devices/platform/huawei_batt_info/key_status
+    chown system system /sys/devices/platform/huawei_batt_info/key_status
+    chmod 0440 /sys/devices/platform/huawei_batt_info/official
+    chown system system /sys/devices/platform/huawei_batt_info/official
+    
+    chown system system /sys/class/leds/lcd_backlight0/brightness
+    chmod 644 /sys/class/leds/lcd_backlight0/brightness
+    
+    chown system system /sys/class/leds/blue/brightness
+    chmod 644 /sys/class/leds/blue/brightness
+    chown system system /sys/class/leds/red/brightness
+    chmod 644 /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/green/brightness
+    chmod 644 /sys/class/leds/green/brightness
+    
+    setprop sys.usb.configfs 0
+    setprop persist.sys.usb.config mass_storage
+    
+    class_start charger
+
+
+service charger /system/bin/charger
+    class charger
+    user root
+    group root system
+    critical
+    seclabel u:r:charger:s0
