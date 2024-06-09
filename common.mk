@@ -101,8 +101,19 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.2.vendor \
-    android.hardware.drm-service.clearkey
+    android.hardware.drm-service.clearkey \
+    android.hardware.drm@1.2.vendor
+
+PRODUCT_PACKAGES += \
+    libmockdrmcryptoplugin
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm@1.2-service.widevine.rc
+
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.2-service.widevine \
+    libwvhidl \
+    liboemcrypto
 
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-v29 \

@@ -33,3 +33,68 @@ android_app_import {
         certificate: "platform",
         privileged: false
 }
+
+cc_prebuilt_library_shared {
+	name: "liboemcrypto",
+	owner: "huawei",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["vendor/lib/liboemcrypto.so"],
+		},
+	},
+	compile_multilib: "32",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libwvhidl",
+	owner: "huawei",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["vendor/lib/libwvhidl.so"],
+		},
+	},
+	compile_multilib: "32",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+	name: "libnoveldrmengine",
+	owner: "huawei",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["vendor/lib/libnoveldrmengine.so"],
+		},
+	},
+	compile_multilib: "32",
+	check_elf_files: false,
+	prefer: true,
+	soc_specific: true,
+}
+
+
+cc_prebuilt_binary {
+	name: "android.hardware.drm@1.2-service.widevine",
+	owner: "huawei",
+	srcs: ["vendor/bin/hw/android.hardware.drm@1.2-service.widevine"],
+	check_elf_files: false,
+	strip: {
+		none: true,
+	},
+	prefer: true,
+	relative_install_path: "hw",
+	soc_specific: true,
+}

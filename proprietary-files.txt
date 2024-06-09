@@ -211,9 +211,7 @@ vendor/lib64/vendor.huawei.hardware.graphics.mediacomm@2.0.so
 vendor/lib64/vendor.huawei.hardware.graphics.mediacomm@2.1.so
 
 # DRM
-preavs/bin/hw/android.hardware.drm@1.1-service.widevine:vendor/bin/hw/android.hardware.drm@1.1-service.widevine
-preavs/etc/init/android.hardware.drm@1.1-service.widevine.rc:vendor/etc/init/android.hardware.drm@1.1-service.widevine.rc
-preavs/lib/libwvhidl.so:vendor/lib/libwvhidl.so
+# Use DRM EMUI 10 v1.2
 
 # Fingerprint
 vendor/bin/hw/vendor.huawei.hardware.biometrics.fingerprint@2.1-service
@@ -227,6 +225,7 @@ vendor/lib64/lib_fpc_tac_shared.so
 vendor/lib64/libfaccommon_share.so
 vendor/lib64/libfacsignedapi_share.so
 vendor/usr/idc/fingerprint.idc
+
 
 # Firmware
 vendor/firmware/BCM4345C0_003.001.025.0033.0000_Generic.hcd
