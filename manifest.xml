@@ -403,4 +403,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>vendor.huawei.hardware.fm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IFmControl</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IFmControl/default</fqname>
+    </hal>
 </manifest>
