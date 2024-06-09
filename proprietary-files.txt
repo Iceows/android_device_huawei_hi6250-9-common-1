@@ -258,7 +258,6 @@ vendor/lib/hw/gatekeeper.hi6250.so
 vendor/lib64/hw/gatekeeper.hi6250.so
 
 # GPS
-system/app/gnss_supl20service_hisi/gnss_supl20service_hisi.apk:system/priv-app/gnss_supl20service_hisi/gnss_supl20service_hisi.apk|5925eba2177396715b425fa27f12af94f9e9919c
 vendor/bin/hw/vendor.huawei.hardware.gnss@1.2-service
 vendor/bin/hw/vendor.huawei.hardware.hisupl@1.0-service
 vendor/bin/gnss_control_hisi
