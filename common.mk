@@ -362,5 +362,8 @@ PRODUCT_PACKAGES += \
 
 -include hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk
 
+# Signed key
+-include vendor/extra/product.mk
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/huawei/hi6250-9-common/hi6250-9-common-vendor.mk)
