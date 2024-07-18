@@ -17,3 +17,5 @@
 /sys/kernel/tui/c_state        u:object_r:sysfs:s0
 /dev/tc_ns_client              u:object_r:teecd_device:s0
 
+# GPS
+/vendor/bin/gpsdaemon                           u:object_r:vendor_hisi_gpsdaemon_exec:s0
