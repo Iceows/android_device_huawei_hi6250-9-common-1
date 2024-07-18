@@ -10,9 +10,16 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-4096-dalvik-heap.mk)
 ## Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Inherit release key 
+$(call inherit-product-if-exists, vendor/extra/product.mk)
+
+# Inherit the proprietary files
+$(call inherit-product, vendor/huawei/hi6250-9-common/hi6250-9-common-vendor.mk)
+
 # Audio
 $(call soong_config_set,android_hardware_audio,run_64bit,true)
 $(call soong_config_set,huaweiAudioVars,emui_version,9)
+
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@4.0-impl-hisi \
@@ -362,8 +369,4 @@ PRODUCT_PACKAGES += \
 
 -include hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk
 
-# Signed key
--include vendor/extra/product.mk
 
-# Inherit the proprietary files
-$(call inherit-product, vendor/huawei/hi6250-9-common/hi6250-9-common-vendor.mk)
