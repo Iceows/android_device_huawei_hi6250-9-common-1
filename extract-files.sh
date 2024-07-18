@@ -75,7 +75,7 @@ function blob_fixup() {
             sed -i '1i on property:sys.rilprops_ready=1\n    start vendor.ril-daemon\n' "${2}"
             echo "    disabled" >> "${2}"
             ;;
-        vendor/lib64/hw/audio.primary_hisi.hi6250.so)
+        vendor/lib64/hw/audio.primary.hi6250.so)
             "${PATCHELF}" --add-needed "libprocessgroup.so" "${2}"
             ;;
         vendor/lib*/hw/gralloc.hi6250.so)

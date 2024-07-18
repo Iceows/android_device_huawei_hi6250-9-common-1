@@ -15,21 +15,23 @@ $(call soong_config_set,android_hardware_audio,run_64bit,true)
 $(call soong_config_set,huaweiAudioVars,emui_version,9)
 
 PRODUCT_PACKAGES += \
-    android.hardware.audio@4.0-impl \
+    android.hardware.audio@4.0-impl-hisi \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.service \
     android.hardware.bluetooth.audio-impl \
 
 PRODUCT_PACKAGES += \
     audio.bluetooth.default \
-    audio.primary.hisi_wrapper \
+    audio.primary.hi6250 \
     audio.r_submix.default \
     audio.usb.default
 
 PRODUCT_PACKAGES += \
-    libalsautils \
     libaudiopreprocessing \
-    libtinycompress
+    libtinycompress \
+    libaudioroute \
+    libtinyalsa \
+    libalsautils
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
