@@ -119,7 +119,6 @@ TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
 BOARD_USES_FULL_RECOVERY_IMAGE := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_huawei
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := hardware/huawei/releasetools
@@ -150,7 +149,7 @@ DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 # VNDK
 PRODUCT_USE_VNDK_OVERRIDE := true
 
-# Wifi
+# Wifi - WPA Supplicant 0.8
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE := bcmdhd
@@ -158,6 +157,7 @@ BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+CONFIG_DRIVER_NL80211 := y
 
 # Inherit the proprietary files
 include vendor/huawei/hi6250-9-common/BoardConfigVendor.mk
