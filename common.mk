@@ -259,7 +259,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.huawei-libperfmgr
+    android.hardware.power-service.pixel-libperfmgr
 
 PRODUCT_PACKAGES += \
     vendor.huawei.hardware.perfgenius@2.0.vendor
@@ -360,13 +360,19 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/system/etc/gnss/config/gnss_suplconfig_hisi.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/gnss/config/gnss_suplconfig_hisi.xml \
      $(LOCAL_PATH)/system/etc/permissions/privapp-permissions-supl.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-supl.xml
 
-# Wifi
+# Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
+    libwpa_client \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf
 
+
+#PRODUCT_COPY_FILES += \
+#    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+#    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
+    
 -include hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk
 
 
