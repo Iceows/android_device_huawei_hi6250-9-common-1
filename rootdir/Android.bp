@@ -50,3 +50,11 @@ prebuilt_etc {
     src: "etc/ueventd.hi6250.rc",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "debug-log-oss.rc",
+    src: "etc/debug-log-oss.rc",
+    sub_dir: "init",
+    vendor: false,
+}
+
